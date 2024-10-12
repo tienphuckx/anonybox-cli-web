@@ -1,10 +1,10 @@
 <script>
+    import SharedCanvas from './SharedCanvas.svelte'; 
+    export let navigate;
     let roomCode = '';
-
     const joinRoomHandler = () => {
         if (roomCode) {
             alert(`Joining room with code: ${roomCode}`);
-            // Add your logic here to handle room joining.
         } else {
             alert('Please enter a room code.');
         }
@@ -12,9 +12,11 @@
 </script>
 
 <div>
+    <SharedCanvas />
     <h2>Join a Room</h2>
     <input type="text" bind:value={roomCode} placeholder="Enter room code" />
     <button on:click={joinRoomHandler}>Join Room</button>
+    <button on:click={() => navigate('home')}>Back to Home</button>
 </div>
 
 <style>

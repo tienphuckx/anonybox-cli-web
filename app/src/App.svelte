@@ -1,24 +1,28 @@
 <script>
     import CreateRoom from './CreateRoom.svelte';
     import JoinRoom from './JoinRoom.svelte';
-    import HomeRoom from "./HomeRoom.svelte";
+    import HomeRoom from './HomeRoom.svelte';
 
     let currentPage = 'home';
+    const navigate = (page) => {
+        currentPage = page;
+    };
 </script>
 
 <main>
-	{#if currentPage === 'home'}
-	<HomeRoom />
+    {#if currentPage === 'home'}
+        <HomeRoom {navigate} />
     {/if}
 
     {#if currentPage === 'create'}
-    <CreateRoom />
+        <CreateRoom {navigate} />
     {/if}
 
     {#if currentPage === 'join'}
-    <JoinRoom />
+        <JoinRoom  {navigate} />
     {/if}
 </main>
+
 
 <style>
     :global(html, body) {
